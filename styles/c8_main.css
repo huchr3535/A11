@@ -1,0 +1,252 @@
+/* Reset & Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  background-color: white;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 100%;
+
+  /* 5) Convert fixed width (800px) to fluid + max-width for larger screens */
+  width: 98%; /* leaves 2% for borders/margins */
+  max-width: 960px; /* recommended maximum container width */
+  margin: 0 auto;
+  border: 3px solid #931420;
+  background-color: #fffded;
+}
+a:focus,
+a:hover {
+  font-style: italic;
+}
+
+/* Header Styles */
+header {
+  padding: 1.5em 0 2em 0;
+  border-bottom: 3px solid #931420;
+
+  background-image: -moz-linear-gradient(
+    30deg,
+    #f6bb73 0%,
+    #f6bb73 30%,
+    white 50%,
+    #f6bb73 80%,
+    #f6bb73 100%
+  );
+  background-image: -webkit-linear-gradient(
+    30deg,
+    #f6bb73 0%,
+    #f6bb73 30%,
+    white 50%,
+    #f6bb73 80%,
+    #f6bb73 100%
+  );
+  background-image: -o-linear-gradient(
+    30deg,
+    #f6bb73 0%,
+    #f6bb73 30%,
+    white 50%,
+    #f6bb73 80%,
+    #f6bb73 100%
+  );
+  background-image: linear-gradient(
+    30deg,
+    #f6bb73 0%,
+    #f6bb73 30%,
+    white 50%,
+    #f6bb73 80%,
+    #f6bb73 100%
+  );
+}
+header h2 {
+  font-size: 175%;
+  color: #800000;
+}
+header h3 {
+  font-size: 130%;
+  font-style: italic;
+}
+
+/* 6) Convert img padding in header from px to a percentage
+	 If original container was ~800px, then 30px → ~3.75%. */
+header img {
+  float: left;
+  padding: 0 3.75%;
+}
+.shadow {
+  text-shadow: 2px 2px 2px #800000;
+}
+
+/* Navigation Styles */
+#nav_menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+#nav_menu ul li {
+  float: left;
+}
+
+/* 7) Remove the fixed width from the nav links (was 160px); 
+		now they can shrink/grow with the layout */
+#nav_menu ul li a {
+  display: block;
+  text-align: center;
+  padding: 1em 0;
+  text-decoration: none;
+  background-color: #800000;
+  color: white;
+  font-weight: bold;
+}
+#nav_menu a.current {
+  color: yellow;
+}
+
+/* Submenu (drop-down) */
+#nav_menu ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+
+  /* 8) Ensure submenu extends the full width of its parent link if desired */
+  width: 100%;
+}
+#nav_menu ul ul li {
+  float: none;
+}
+#nav_menu ul li:hover > ul {
+  display: block;
+}
+/* Clear floats in the top-level nav */
+#nav_menu > ul::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+/* Main Content: Section */
+section {
+  /* Original width was 525px. Convert to ~65% if body used to be 800px */
+  width: 65%;
+  float: right;
+
+  /* Convert 20px padding to ~2.5% of 800px (approx) */
+  padding: 0 2.5% 2.5% 2.5%;
+}
+section h1 {
+  font-size: 150%;
+  padding: 0.5em 0 0.25em 0;
+  margin: 0;
+}
+section h2 {
+  color: #800000;
+  font-size: 130%;
+  padding: 0.5em 0 0.25em 0;
+}
+section p {
+  padding-bottom: 0.5em;
+}
+section blockquote {
+  padding: 0 2em;
+  font-style: italic;
+}
+section ul {
+  padding: 0 0 0.25em 1.25em;
+  list-style-type: circle;
+}
+section li {
+  padding-bottom: 0.35em;
+}
+
+/* Article */
+article {
+  padding: 0.5em 0;
+  border-top: 2px solid #800000;
+  border-bottom: 2px solid #800000;
+}
+article h2 {
+  padding-top: 0;
+}
+article h3 {
+  font-size: 105%;
+  padding-bottom: 0.25em;
+}
+
+/* 9) Make the image fluid and clickable (max-width: 40%, float: right, etc.) */
+article img {
+  float: right;
+  margin: 0.5em 0 1em 1em;
+  border: 1px solid black;
+
+  /* For fluid design */
+  max-width: 40%;
+  height: auto;
+}
+
+/* Aside */
+aside {
+  /* Original aside width ~215px, ~26.875%. Let’s approximate 27%. */
+  width: 27%;
+  float: right;
+
+  /* Convert 20px left padding → ~2.5% if referencing ~800px container. */
+  padding: 0 0 20px 2.5%;
+}
+aside h2 {
+  color: #800000;
+  font-size: 130%;
+  padding: 0.5em 0 0.25em 0;
+}
+aside h3 {
+  font-size: 105%;
+  padding-bottom: 0.25em;
+}
+aside img {
+  padding-bottom: 1em;
+}
+
+/* Footer */
+footer {
+  background-color: #931420;
+  clear: both;
+}
+footer p {
+  text-align: center;
+  color: white;
+  padding: 1em 0;
+}
+
+/* 10) OPTIONAL: Add a simple media query to enhance responsiveness on narrow screens */
+@media screen and (max-width: 600px) {
+  header img {
+    float: none;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 80%;
+  }
+
+  section,
+  aside {
+    float: none;
+    width: 90%;
+    margin: 0 auto;
+    padding: 1em 0;
+  }
+
+  /* Stacking nav items */
+  #nav_menu ul li {
+    float: none;
+  }
+
+  /* Let images be fully responsive if needed */
+  article img {
+    float: none;
+    display: block;
+    margin: 1em auto;
+    max-width: 80%;
+  }
+}
